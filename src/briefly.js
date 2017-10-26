@@ -1,3 +1,31 @@
+export function format(date){
+	Date formattedDate;
+	switch(date){
+		case "YYYY/MM/DD HH:mm:SS":
+			formattedDate = formatISO(date);
+			break;
+		case "DD/MM/YYYY ISO":
+			formattedDate = ddmmyyISO();
+			break;
+		case "DD/MM/YYYY":
+			formattedDate = ddmmyyyy();
+			break;
+		case "DD/MM":
+			formattedDate = ddmm(date);
+			break;
+		case "HH:MM":
+			formattedDate = hhmm(date);
+			break;
+		case "HH:MM DD/MM":
+			formattedDate = hhmmddmm(date);
+			break;
+		default:
+			formattedDate = hhmmss(date);
+	}
+	return formattedDate;
+
+}
+
 export function formatISO(date) {
 	// Handle "YYYY/MM/DD HH:mm:SS" Date formats for Safari
 	// If they are in that format we'll return "YYYY/MM/DDTHH:mm:SS"

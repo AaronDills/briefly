@@ -10,8 +10,8 @@ describe("Briefly", () => {
 	describe("Test formatISO", () => {
 		it("should convert to iso string", () => {
 			const dateWithSpaces = originalDate.replace("T", " ");
-			const spacesDate = B.formatISO(dateWithSpaces);
-			const noSpaceDate = B.formatISO(originalDate);
+			const spacesDate = B.format(dateWithSpaces);
+			const noSpaceDate = B.format(originalDate);
 
 			const expectDate = new Date(originalDate).toISOString();
 
@@ -40,7 +40,7 @@ describe("Briefly", () => {
 				day,
 			)}`;
 
-			expect(B.ddmmyyISO()).toEqual(ddmmyyISODate);
+			expect(B.format()).toEqual(ddmmyyISODate);
 		});
 	});
 
@@ -48,7 +48,7 @@ describe("Briefly", () => {
 		it("should return a date string with format DD/MM/YYYY", () => {
 			const expectDate = "08/10/2017";
 
-			expect(B.ddmmyyyy(originalDate)).toEqual(expectDate);
+			expect(B.format(originalDate)).toEqual(expectDate);
 		});
 	});
 
@@ -56,7 +56,7 @@ describe("Briefly", () => {
 		it("should return a date string with format DD/MM", () => {
 			const expectDate = "08/10";
 
-			expect(B.ddmm(originalDate)).toEqual(expectDate);
+			expect(B.format(originalDate)).toEqual(expectDate);
 		});
 	});
 
@@ -64,7 +64,7 @@ describe("Briefly", () => {
 		it("should return only HH:MM string of the date", () => {
 			const expectDate = "04:00";
 
-			expect(B.hhmm(originalDate)).toEqual(expectDate);
+			expect(B.format(originalDate)).toEqual(expectDate);
 		});
 	});
 
@@ -72,7 +72,7 @@ describe("Briefly", () => {
 		it("should return date in HH:MM DD/MM format", () => {
 			const expectDate = "04:00 08/10";
 
-			expect(B.hhmmddmm(originalDate)).toEqual(expectDate);
+			expect(B.format(originalDate)).toEqual(expectDate);
 		});
 	});
 
@@ -80,7 +80,7 @@ describe("Briefly", () => {
 		it("should return date formated as HH:MM:SS", () => {
 			const expectDate = "04:00:00";
 
-			expect(B.hhmmss(originalDate)).toEqual(expectDate);
+			expect(B.format(originalDate)).toEqual(expectDate);
 		});
 	});
 
